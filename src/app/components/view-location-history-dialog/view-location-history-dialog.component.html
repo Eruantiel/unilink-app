@@ -1,0 +1,15 @@
+<mat-table [dataSource]="dataSource" matSort *ngIf="data">
+
+  <ng-container matColumnDef="locationName">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Location Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.locationName }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="recordDate">
+    <mat-header-cell *matHeaderCellDef mat-sort-header> Record Date </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.recordDate | date:'short' }} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
